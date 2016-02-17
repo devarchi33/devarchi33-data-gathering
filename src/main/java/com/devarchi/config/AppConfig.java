@@ -1,6 +1,7 @@
 package com.devarchi.config;
 
 import com.devarchi.CallRestWS;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,7 @@ public class AppConfig {
 
     @Value("${endPoint}")
     private String endPoint;
-    @Value(("${serviceKey}"))
+    @Value("${serviceKey}")
     private String serviceKey;
 
     /*
@@ -30,8 +31,9 @@ public class AppConfig {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    @Bean
+    @Bean(name = "callRestWS")
     public CallRestWS callRestWS() {
         return new CallRestWS(endPoint, serviceKey);
     }
+
 }

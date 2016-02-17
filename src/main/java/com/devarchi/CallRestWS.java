@@ -40,6 +40,10 @@ public class CallRestWS {
         IOUtils.copy(in, bos);
         in.close();
         bos.close();
-        return bos.getOut().toString();
+
+        String response = bos.getOut().toString();
+        int delLintNum = response.indexOf("<response>");
+
+        return response.substring(delLintNum);
     }
 }

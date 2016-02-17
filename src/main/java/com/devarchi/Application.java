@@ -24,6 +24,8 @@ public class Application {
         params.add("&startPage=1");
 
         String returnVal = cr.restClient(params);
+        System.out.println("        ");
+        System.out.println("        ");
         System.out.println(returnVal);
     }
 }
